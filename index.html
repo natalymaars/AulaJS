@@ -1,0 +1,111 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Introdução a JavaScript</title>
+</head>
+<body>
+    <div>
+        <div>
+            <nav>
+                <a href="#datahora">Ver data e hora</a>
+                <a href="#copiar">copiar o paragrafo</a>
+                <a href="#fonteimagem">mudar a imagem</a>
+                <a href="#estiloparagrafo">mudar a letra</a>
+                <a href="#ocultartexto">ocultar texto</a>
+                <a href="#exibiralerta">exibir alerta</a>
+                <a href="#recarregarpag">recarregar pag</a>
+
+            </nav>
+        </div>
+        <div id="datahora">
+        
+            <h1>Primeiro JS</h1>
+            <p>Passe o mouse sobre o botão para ver data e hora do sistema</p>
+            <button onmouseover="document.getElementById('dh').innerHTML = Date()"
+                onmouseout="document.getElementById('dh').innerHTML = ''">
+                data e hora AQUI
+            </button>
+            <p id="dh"></p>
+        </div>
+        <div id="copiar">
+            <h2>Outras formas de usar innerHTML</h2>
+            <p id="par1">o conteudo deste paragrafo sera copiado para um p abaixo do botão</p>
+            <button onclick="copiaParagrafo()">
+                Click aqui para copiar o paragrafo
+            </button>
+            <p id="par2"></p>
+        
+        </div>
+        <div id="fonteimagem">
+            <h2>Editando a fonte de uma imagem </h2>
+            <button onclick="ligar()">
+                vou ver o eduardo
+            </button>
+            <img src= "img/feliz.jpg" width="200px"
+            alt="imagem de uma lampada" id="luz">
+            <button onclick="desligar()">
+                vou trabalhar
+            </button>
+        </div>
+        <div id="estiloparagrafo">
+            <h2>Editando estilo com JS</h2>
+            <p id="pestilo">
+                O estilo desse paragrafo vai ser alterado com o cliqyue do botão abaixo
+            </p>
+            <button onclick="alteraEstilo()">alterar</button>
+        
+        </div>
+        <div id="ocultartexto">
+            <h2>Ocultar elementos com JS</h2>
+            <label for="texto">entrada de texto</label>
+            <input id="texto" type="text">
+            <button onclick="ocultar()">Ocultar a caixa de texto</button>
+        </div>
+        <div id="exibiralerta">
+            <h2>Exibindo janela de alerta</h2>
+            <p>Ao clicar no botão veja uma mensagem:</p>
+            <button onclick="alerta()">
+            alerta
+            </button>
+        </div>
+        <div id="recarregarpag">
+            <h2>reescrevendo o html</h2>
+            <p>A função document.write() reescreve a pagina.</p>
+            <button onclick="recarregar()">
+                recarregar pagina
+            </button>
+        </div>
+    </div>
+    <script>
+        function copiaParagrafo(){
+            let x = document.getElementById('par1').innerHTML;
+            document.getElementById('par2').innerHTML = x;
+
+        }
+
+        function ligar(){
+            document.getElementById('luz').src = "img/feliz.jpg";
+            
+        }
+        function desligar(){
+            document.getElementById('luz').src = "img/triste.jpg";
+        }
+        function alteraEstilo(){
+            document.getElementById('pestilo').style.fontSize = '3rem';
+        }
+        function ocultar(){
+            document.getElementById('texto').style.display = 'none';
+            
+        }
+        function alerta(){
+            window.alert("você nunca vai conquistar nada na vida");
+        }
+        function recarregar(){
+            document.write();
+        }
+    </script>
+</body>
+</html>
